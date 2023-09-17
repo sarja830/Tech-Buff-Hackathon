@@ -11,7 +11,7 @@ const SignupForm = () => {
   });
 
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -40,7 +40,7 @@ const SignupForm = () => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
     const form_data = new FormData();
-    form_data.append("name", formData.name);
+    form_data.append("username", formData.username);
     form_data.append("email", formData.email);
     form_data.append("password", formData.password);
 
@@ -49,7 +49,7 @@ const SignupForm = () => {
     // }
 
     axios
-      .post(`${SERVER_URL}/auth/register`, formData, {
+      .post(`${SERVER_URL}/auth/register`, form_data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -58,7 +58,8 @@ const SignupForm = () => {
         navigate("/signin");
       })
       .catch((error) => {
-        alert(error);
+        // console.log(error);
+        alert(error.response.data.email[0]);
       });
   };
 
@@ -149,7 +150,7 @@ const SignupForm = () => {
             <input
               type="name"
               id="name"
-              name="name"
+              name="username"
               value={formData.name}
               onChange={inputChangeHandler}
               className="w-full border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 focus:outline-none"

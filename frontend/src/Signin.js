@@ -5,7 +5,7 @@ import {SERVER_URL} from "./config/dev";
 
 const Signin = () => {
     const navigate = useNavigate();
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -22,11 +22,26 @@ const Signin = () => {
         }));
     };
 
-    const formSubmitHandler = () => {
+    const formSubmitHandler = (event) => {
+      event.preventDefault();
       const form_data = new FormData();
 
       form_data.append("email", formData.email);
       form_data.append("password", formData.password);
+
+      for(const x of form_data.entries()) {
+        console.log(`${x[0]} : ${x[1]}`);
+      }
+
+      axios.post(`${SERVER_URL}/auth/login`, form_data, {headers: {
+        'Content-type': `multipart/form-data`,
+      }}).then((response) => {
+        console.log(response.data);
+        localStorage.setItem("token", response.data.token);
+        setIsLoggedIn(true);
+      }).catch((error) => {
+        alert(error);
+      })
     };
 
     const userDashboardHandler = () => {
