@@ -355,10 +355,10 @@ const EmployeeDashboard = () => {
               <div className="h-56 w-full rounded-xl bg-white p-10 shadow-md"></div>
             </div>
           </main> */}
-          {tab==="dashboard" && <div className=""><Jobs /></div>}
+          {tab==="dashboard" && <div className=""><Jobs setTab={setTab} /></div>}
         {/* </div>} */}
         {/* <!-- /Main --> */}
-        {tab==="profile" && <EmployeeProfile />}
+        {tab==="profile" && <EmployeeProfile setTab={setTab} />}
       </div>
     </div>
   );

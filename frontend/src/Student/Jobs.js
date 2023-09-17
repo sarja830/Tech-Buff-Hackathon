@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Jobs = () => {
+const Jobs = ({setTab}) => {
+  const [jobs, setJobs] = useState([]);
+
   return (
-    <div className="relative flex flex-col items-center justify-center overflow-hidden sm:py-12">
-      <h1 className="mb-6 text-2xl"><strong>Your job feed personalized to your preferences</strong></h1>
+    <>
+    <div className="flex flex-col">
+      <h1 className="mb-6 text-2xl text-center mt-4"><strong>Your job feed personalized to your preferences</strong></h1>
+      <button onClick={() => (setTab("profile"))} className="underline text-blue-600">Update your profile for more job recommendations</button>
+    </div>
+    {jobs.length>0 ? <div className="relative flex flex-col items-center justify-center overflow-hidden sm:py-12">
       <div className="bg-white  shadow-xl shadow-gray-100 w-full max-w-4xl flex flex-col sm:flex-row gap-3 sm:items-center  justify-between px-5 py-4 rounded-md">
         <div>
           <span className="text-purple-800 text-sm">Engineering</span>
@@ -57,7 +64,12 @@ const Jobs = () => {
           </button>
         </div>
       </div>
-    </div>
+    </div> :
+    <div className="mt-10 px-10">
+      <p>Sorry, 0 matching jobs found!</p>
+      <p>Try updating your profile for more recommendations.</p>
+      </div>}
+    </>
   );
 };
 

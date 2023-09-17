@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BiEdit, BiSave } from "react-icons/bi";
 import { Link, useParams } from "react-router-dom";
 
-const EmployeeProfile = () => {
+const EmployerProfile = () => {
   const params = useParams();
   // const userData = JSON.parse(localStorage.getItem(`${params.bid}-customer`));
   const userData = {
@@ -319,4 +319,4 @@ const EmployeeProfile = () => {
   );
 };
 
-export default EmployeeProfile;
+export default EmployerProfile;
