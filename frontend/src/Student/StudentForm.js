@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import Skills from "./Skills";
 
-const StudentForm = () => {
+const StudentForm = ({setTab}) => {
     const [studentData, setStudentData] = useState({
         firstName: "",
         lastName: "",
         skills: [],
         jobTitles: [],
         profile: "",
+        resume: "",
     });
 
+    const [defaultValue, setDefaultValue] = useState("");
+    const [jobsTitleDefaultValue, setJobTitleDefaultValue] = useState("");
     const [image, setImage] = useState("");
+    const [resumePDF, setResumePDF] = useState("");
 
     const skillsChangeHandler = (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         let skills = studentData.skills;
+        console.log(skills);
         let newSkill = event.target.value;
         skills = skills.filter((skill) => (skill!==newSkill));
         skills.push(newSkill);
@@ -22,6 +27,7 @@ const StudentForm = () => {
             ...prevState ,
             skills: [...skills],
         }));
+        setDefaultValue("Select a skill");
     };
 
     const jobTitlesChangeHandler = (event) => {
@@ -33,6 +39,7 @@ const StudentForm = () => {
             ...prevState ,
             jobTitles: [...jobTitles],
         }));
+        setJobTitleDefaultValue("Select a job title")
     };
 
     const inputChangeHandler = (event) => {
@@ -44,22 +51,35 @@ const StudentForm = () => {
     };
 
     const profileChangeHandler = (event) => {
-        let file = event.target.files[0];
+        const file = event.target.files[0];
         const image = URL.createObjectURL(file);
-        setImage(image);
+        if(event.target.name==="profile") {
+          setImage(image);
+        }
+        else {
+          setResumePDF(image);
+        }
 
         setStudentData((prevState) => ({
             ...prevState,
-            profile: file,
+            [event.target.name]: file,
         }))
     };
 
     const resetDataHandler = () => {
-            window.location.reload();
-    }
+            // window.location.reload();
+      setStudentData({firstName: "",
+        lastName: "",
+        skills: [],
+        jobTitles: [],
+        profile: "",
+        resume: "",
+      });
+            // setTab("profile");
+    };
 
   return (
-    <div className="my-4 max-w-screen-md border px-4 shadow-xl sm:mx-4 sm:rounded-xl sm:px-4 sm:py-4 md:mx-auto">
+    <div className=" w-full border px-4 shadow-xl sm:mx-4 sm:px-4 sm:py-4 md:mx-auto overflow-y-scroll bg-white">
         <h1 className="text-2xl text-gray-700 text-center"><strong>Complete your profile</strong></h1>
       <div className="flex flex-col border-b py-4 sm:flex-row sm:items-start">
         <div className="shrink-0 mr-auto sm:py-3">
@@ -98,6 +118,7 @@ const StudentForm = () => {
             // multiple={true}
           className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
           onChange={skillsChangeHandler}
+          value={defaultValue}
         >
             <option hidden>Select a skill</option>
             <option value="frontend">Frontend</option>
@@ -120,14 +141,41 @@ const StudentForm = () => {
             // multiple={true}
           className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
           onChange={jobTitlesChangeHandler}
+          value={jobsTitleDefaultValue}
         >
-            <option>Select a job title</option>
+            <option hidden>Select a job title</option>
             <option value="software developer">Software Developer</option>
             <option value="software engineer">Software Engineer</option>
             <option value="manager">Manager</option>
         </select>
         </div>
         <Skills skills={studentData.jobTitles} setStudentData={setStudentData} studentData={studentData} field="jobTitles" />
+      </div>
+      <div className="flex flex-col gap-4 py-4  lg:flex-row border-b">
+        <div className="shrink-0 w-32  sm:py-4">
+          <p className="mb-auto font-medium">Resume</p>
+          <p className="text-sm text-gray-600">Upload resume</p>
+        </div>
+        <div className="flex h-56 w-full flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-gray-300 p-5 text-center overflow-y-scroll">
+          {studentData.resume && <div className="w-full h-full flex flex-col gap-2"><object
+            data={resumePDF}
+            className="w-full h-full"
+            alt="resume"
+            aria-label="reusme"
+          ></object>
+          <a href={resumePDF} target="blank" className="underline text-blue-600">Open in new tab</a></div>}
+          {/* <p className="text-sm text-gray-600">
+            Drop your desired image file here to start the upload
+          </p> */}
+          <div>
+          <input
+            type="file"
+            className="max-w-full rounded-lg px-2 font-medium text-blue-600 outline-none ring-blue-600 focus:ring-1"
+            name="resume"
+            onChange={profileChangeHandler}
+          />
+          </div>
+        </div>
       </div>
       <div className="flex flex-col gap-4 py-4  lg:flex-row">
         <div className="shrink-0 w-32  sm:py-4">

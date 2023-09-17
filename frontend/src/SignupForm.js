@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {SERVER_URL} from "./config/dev";
 
 const SignupForm = () => {
@@ -97,13 +97,13 @@ const SignupForm = () => {
           </div>
         </div>
       </div>
-      <div className="px-4 py-20">
+      <div className="px-4 py-20 w-1/3">
         <h2 className="mb-2 text-3xl font-bold">Sign Up</h2>
-        <a href="/" className="mb-10 block font-bold text-gray-600">
-          Have an account
-        </a>
-        <p className="mb-1 font-medium text-gray-500">Are you a</p>
-        <div className="mb-6 flex flex-col gap-y-2 gap-x-4 lg:flex-row">
+        <Link to="/signin" className="mb-10 block font-bold text-gray-600">
+          Have an account?
+        </Link>
+        {/* <p className="mb-1 font-medium text-gray-500">Are you a</p> */}
+        {/* <div className="mb-6 flex flex-col gap-y-2 gap-x-4 lg:flex-row">
           <div className="relative flex w-56 items-center justify-center rounded-xl bg-gray-50 px-4 py-3 font-medium text-gray-700">
             <input
               className="peer hidden"
@@ -142,7 +142,7 @@ const SignupForm = () => {
             <div className="peer-checked:border-transparent peer-checked:bg-blue-600 peer-checked:ring-2 absolute left-4 h-5 w-5 rounded-full border-2 border-gray-300 bg-gray-200 ring-blue-600 ring-offset-2"></div>
             <span className="pointer-events-none z-10">Student</span>
           </div>
-        </div>
+        </div> */}
         <p className="mb-1 font-medium text-gray-500">Name</p>
         <div className="mb-4 flex flex-col">
           <div className="focus-within:border-blue-600 relativeflex overflow-hidden rounded-md border-2 transition sm:w-80 lg:w-full">

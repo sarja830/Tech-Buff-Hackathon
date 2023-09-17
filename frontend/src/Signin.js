@@ -5,10 +5,13 @@ import {SERVER_URL} from "./config/dev";
 
 const Signin = () => {
     const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
+
+    const [userType, setUserType] = useState("");
 
     const inputChangeHandler = (event) => {
         const {name, value} = event.target;
@@ -17,12 +20,26 @@ const Signin = () => {
             ...prevState,
             [name]: value,
         }));
+    };
 
+    const formSubmitHandler = () => {
+      const form_data = new FormData();
 
-    }
+      form_data.append("email", formData.email);
+      form_data.append("password", formData.password);
+    };
+
+    const userDashboardHandler = () => {
+      if(userType==="employer") {
+        navigate("/employer");
+      }
+      else{
+        navigate("/employee");
+      }
+    };
 
   return (
-    <div className="mx-auto flex h-screen max-w-lg flex-col md:max-w-none md:flex-row md:pr-10">
+    !isLoggedIn ? <form className="mx-auto flex h-screen max-w-lg flex-col md:max-w-none md:flex-row md:pr-10">
       <div className="max-w-md rounded-3xl bg-gradient-to-t from-blue-700 via-blue-700 to-blue-600 px-4 py-10 text-white sm:px-10 md:m-6 md:mr-8">
         <p className="mb-20 font-bold tracking-wider">CORINE</p>
         <p className="mb-4 text-3xl font-bold md:text-4xl md:leading-snug">
@@ -62,8 +79,8 @@ const Signin = () => {
           Sign in to your accout
         </a>
         
-        <p className="mb-1 font-medium text-gray-500">Name</p>
-        <div className="mb-4 flex flex-col">
+        {/* <p className="mb-1 font-medium text-gray-500">Name</p> */}
+        {/* <div className="mb-4 flex flex-col">
           <div className="focus-within:border-blue-600 relativeflex overflow-hidden rounded-md border-2 transition sm:w-80 lg:w-full">
             <input
               type="name"
@@ -75,7 +92,7 @@ const Signin = () => {
               placeholder="Enter your name"
             />
           </div>
-        </div>
+        </div> */}
         <p className="mb-1 font-medium text-gray-500">Email</p>
         <div className="mb-4 flex flex-col">
           <div className="focus-within:border-blue-600 relativeflex overflow-hidden rounded-md border-2 transition sm:w-80 lg:w-full">
@@ -104,10 +121,57 @@ const Signin = () => {
             />
           </div>
         </div>
-        <button className="hover:shadow-blue-600/40 rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 px-8 py-3 font-bold text-white transition-all hover:opacity-90 hover:shadow-lg">
+        <button className="hover:shadow-blue-600/40 rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 px-8 py-3 font-bold text-white transition-all hover:opacity-90 hover:shadow-lg"
+        type='submit' onClick={formSubmitHandler}>
           Sign in
         </button>
       </div>
+    </form> :
+    <div className='max-w-2xl w-fit mx-auto py-20 bg-gray-100 px-20 mt-20 rounded-md shadow-lg'>
+      <p className="mb-8 font-medium text-gray-500 text-3xl text-center">Are you a</p>
+        <div className="mb-6 flex flex-col gap-y-2 gap-x-4 lg:flex-row">
+          <div className="relative flex w-56 items-center justify-center rounded-xl bg-gray-50 px-4 py-6 text-xl font-medium text-gray-700">
+            <input
+              className="peer hidden"
+              type="radio"
+              name="user"
+              value="employer"
+              onChange={() => (setUserType("employer"))}
+              id="employer"
+              // checked={person.isEmployer}
+            />
+            <label
+              className="peer-checked:border-blue-600 peer-checked:bg-blue-200 absolute top-0 h-full w-full cursor-pointer rounded-xl border"
+              htmlFor="employer"
+            >
+              {" "}
+            </label>
+            <div className="peer-checked:border-transparent peer-checked:bg-blue-600 peer-checked:ring-2 absolute left-4 h-5 w-5 rounded-full border-2 border-gray-300 bg-gray-200 ring-blue-600 ring-offset-2"></div>
+            <span className="pointer-events-none z-10">Employer</span>
+          </div>
+          <div className="relative flex w-56 items-center justify-center rounded-xl bg-gray-50 px-4 py-6 text-xl font-medium text-gray-700">
+            <input
+              className="peer hidden"
+              type="radio"
+              name="user"
+              value="student"
+              onChange={() => (setUserType("employee"))}
+              id="employee"
+              // checked={person.isStudent}
+            />
+            <label
+              className="peer-checked:border-blue-600 peer-checked:bg-blue-200 absolute top-0 h-full w-full cursor-pointer rounded-xl border"
+              htmlFor="employee"
+            >
+              {" "}
+            </label>
+            <div className="peer-checked:border-transparent peer-checked:bg-blue-600 peer-checked:ring-2 absolute left-4 h-5 w-5 rounded-full border-2 border-gray-300 bg-gray-200 ring-blue-600 ring-offset-2"></div>
+            <span className="pointer-events-none z-10">Student</span>
+          </div>
+        </div> 
+        <div className='w-full flex justify-end mt-8'>
+          <button className='bg-indigo-600 text-white rounded-md px-4 py-2 hover:bg-indigo-500' onClick={userDashboardHandler}>Submit</button>
+        </div>
     </div>
   );
 };

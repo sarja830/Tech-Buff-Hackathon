@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddText from "./AddText";
 import EmployeeProfile from "./EmployeeProfile";
+import JobPostings from "./JobPostings";
 
 const Dashboard = () => {
     const [tab, setTab] = useState("dashboard");
@@ -77,6 +78,42 @@ const Dashboard = () => {
               </svg>}
               </button>
             </li>
+            {/* Job postings tab */}
+            <li className="relative">
+              <button className="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none"
+              onClick={() => setTab("jobPostings")}>
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                    />
+                  </svg>
+                </span>
+                <span className="">Job Postings</span>
+                {tab==="jobPostings" && <svg
+                className="text-slate-200 absolute -right-1 -top-1/2 z-10 hidden h-32 w-8 md:block"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="399.349 57.696 100.163 402.081"
+                width="1em"
+                height="4em"
+              >
+                <path
+                  fill="currentColor"
+                  d="M 499.289 57.696 C 499.289 171.989 399.349 196.304 399.349 257.333 C 399.349 322.485 499.512 354.485 499.512 458.767 C 499.512 483.155 499.289 57.696 499.289 57.696 Z"
+                />
+              </svg>}
+              </button>
+            </li>
+            {/* Profile tab */}
             <li className="relative">
               <button className="focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 font-semibold focus:outline-none"
               onClick={() => (setTab("profile"))}>
@@ -359,6 +396,7 @@ const Dashboard = () => {
         {/* <!-- /Main --> */}
         {isNew && tab==="dashboard" && <AddText />}
         {tab==="profile" && <EmployeeProfile />}
+        {tab==="jobPostings" && <JobPostings />}
       </div>
     </div>
   );
