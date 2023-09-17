@@ -48,7 +48,7 @@ const SignupForm = () => {
     // }
 
     axios
-      .post("http://172.29.223.110:8001/auth/register", formData, {
+      .post("http://127.0.0.1:8000/auth/register", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
