@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AddText from "./AddText";
-import EmployeeProfile from "./EmployeeProfile";
+import EmployeeProfile from "./EmployerProfile";
 import JobPostings from "./JobPostings";
 
 const Dashboard = () => {

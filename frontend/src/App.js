@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import SignupForm from "./SignupForm";
 import Signin from "./Signin";
-import Dashboard from "./Employee/Dashboard";
+import Dashboard from "./Employer/Dashboard";
 import EmployeeDashboard from "./Student/EmployeeDashboard";
 
 const router = createBrowserRouter([
