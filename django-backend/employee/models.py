@@ -1,6 +1,6 @@
 from django.db import models
 from authentication.models import User
-
+from django.contrib import admin
 
 # Create your models here.
 class WorkPref(models.Model):
@@ -31,3 +31,6 @@ class Project(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
 
+admin.site.register(WorkPref)
+admin.site.register(JobPosting)
+admin.site.register(Project)

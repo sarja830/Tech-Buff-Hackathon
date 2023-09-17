@@ -31,12 +31,11 @@ class register(APIView):
         
 
         if user_serializer.is_valid():
-            user = User.objects.create(
-                name = user_data['name'], 
+            User.objects.create(
+                username = user_data['username'], 
                 email = user_data['email'],
                 password = make_password(user_data['password']),
             )
-            user.save()
             
             return JsonResponse({"msg": "Sign up successful"}, status=201)
 
@@ -90,8 +89,8 @@ class HelloView(APIView):
                 # If authentication fails, return an error response
                 return Response({'error': 'Invalid token'}, status=status.HTTP_401_UNAUTHORIZED)
 
-            current_user = User.objects.get(name=user.name)
-            content = {'message': 'Hello, ' + user.name}
+            current_user = User.objects.get(username=user.username)
+            content = {'message': 'Hello, ' + user.username}
         else:
             content = {'message': 'Hello, World! Username not found' }
         return Response(content)
@@ -168,4 +167,4 @@ def auth_current_user(request):
         except AuthenticationFailed:
             return None
         
-        return User.objects.get(name=user.name)
+        return User.objects.get(username=user.username)

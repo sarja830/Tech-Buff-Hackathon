@@ -7,7 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         User = get_user_model()
         model =  User
-        fields = ('name', 'email', 'password' )
+        fields = ('username', 'email', 'password' )
     
     def create(self, validated_data):
         User = get_user_model()
@@ -19,6 +19,7 @@ class ReadUserSerializer(serializers.ModelSerializer):
     class Meta:
         model =  User
         fields = (
+            'username',
             'email',
             'profile_photo_url',
             'phone_number',
@@ -30,6 +31,7 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         fields = (
+            'username',
             'email',
             'profile_photo_url',
             'phone_number',
@@ -38,6 +40,7 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
         model = User
 
     def update(self, instance, validated_data):
+        instance.username = validated_data.get('username', instance.username)
         instance.email = validated_data.get('email', instance.email)
         instance.profile_photo_url = validated_data.get('profile_photo_url', instance.profile_photo_url)
         instance.phone_number = validated_data.get('phone_number', instance.phone_number)

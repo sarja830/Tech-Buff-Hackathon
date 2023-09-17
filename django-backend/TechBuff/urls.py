@@ -30,6 +30,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     
+    path('admin/', admin.site.urls),
+
     # Auth
     path('auth/hello', auth_views.HelloView.as_view()),
     path('auth/hello_no_auth', auth_views.HelloViewNoAuth.as_view()),
