@@ -2,148 +2,187 @@
   "steps": [
     {
       "step_number": 1,
-      "category": "Research and Analysis",
+      "category": "Market Research",
       "tasks": [
-        "Conduct market research on the online food delivery industry",
-        "Analyze current meal-prep services and their catering options for specialized diets",
-        "Study customer preferences and demands in the Niagara Falls, Buffalo region"
+        "Conduct a detailed market analysis of the online food delivery industry in the U.S.",
+        "Identify specific trends, customer preferences, and competition in the industry",
+        "Study consumer behavior and demands regarding meal-prep services and specialized diets"
       ],
       "team_positions": [
-        "Market Research Analyst",
-        "Business Analyst"
+        "Market Research Analyst"
       ],
-      "resources": {
-        "Organizations": ["National Restaurant Association", "Canadian Restaurant and Foodservices Association"],
-        "Funding": ["Start-up NY", "Buffalo Angels"],
-        "Incubation Centers": ["Z80 Labs", "Launch NY"]
-      }
+      "resources": [
+        {
+          "organization": "Buffalo Niagara Partnership",
+          "website": "https://www.thepartnership.org/"
+        },
+        {
+          "organization": "Niagara USA Chamber of Commerce",
+          "website": "https://www.niagarachamber.org/"
+        }
+      ]
     },
     {
       "step_number": 2,
       "category": "Business Planning",
       "tasks": [
-        "Define your meal-prep service's unique selling proposition",
-        "Create a comprehensive business plan including financial projections",
-        "Identify potential competitors and develop a competitive strategy"
+        "Define your business goals, mission statement, and target audience",
+        "Develop a comprehensive business plan including financial projections",
+        "Analyze the potential risks and challenges of entering the meal-prep market"
       ],
       "team_positions": [
         "Business Strategist",
         "Financial Analyst"
       ],
-      "resources": {
-        "Organizations": ["Small Business Development Center (SBDC)", "Buffalo Niagara SCORE"],
-        "Funding": ["Innovation Center at Niagara Falls Culinary Institute", "Empire State Development"],
-        "Incubation Centers": ["43North", "Techstars Buffalo"]
-      }
+      "resources": [
+        {
+          "organization": "Small Business Development Center at Buffalo State College",
+          "website": "https://www.buffalosbdc.com/"
+        },
+        {
+          "organization": "SCORE Buffalo Niagara",
+          "website": "https://buffaloniagara.score.org/"
+        }
+      ]
     },
     {
       "step_number": 3,
-      "category": "Legal and Regulatory",
+      "category": "Legal and Licensing",
       "tasks": [
-        "Register your business and obtain necessary licenses and permits",
-        "Ensure compliance with local, state, and federal health and safety regulations",
-        "Protect intellectual property (such as trademarks or patents) if applicable"
+        "Consult with an attorney to understand legal requirements for a meal-prep service",
+        "Determine necessary permits, licenses, and certifications",
+        "Consider forming a legal entity and register your business name"
       ],
       "team_positions": [
-        "Legal Counsel",
-        "Compliance Officer"
+        "Attorney",
+        "Legal Consultant"
       ],
-      "resources": {
-        "Organizations": ["Niagara Falls Small Business Development Center", "Buffalo Niagara Partnership"],
-        "Funding": ["Startup Resource Fund", "Venture Capital Fund of Buffalo"],
-        "Incubation Centers": ["Northland Workforce Training Center", "Innovate Niagara"]
-      }
+      "resources": [
+        {
+          "organization": "Niagara County Bar Association",
+          "website": "https://www.niagarabar.org/"
+        },
+        {
+          "organization": "Small Business Legal Clinic at University at Buffalo",
+          "website": "https://bslbuffalo.com/"
+        }
+      ]
     },
     {
       "step_number": 4,
       "category": "Operations and Logistics",
       "tasks": [
-        "Source high-quality ingredients and establish supplier relationships",
-        "Develop an efficient meal-prep production process",
-        "Implement effective inventory management and delivery systems"
+        "Design an efficient meal-prep process and set up a commercial kitchen",
+        "Source high-quality ingredients from local suppliers and farmers",
+        "Establish partnerships with reliable delivery services or develop an in-house delivery system"
       ],
       "team_positions": [
         "Operations Manager",
-        "Supply Chain Specialist"
+        "Supply Chain Manager"
       ],
-      "resources": {
-        "Organizations": ["Buffalo Niagara Manufacturing Alliance", "New York State Food Venture Center"],
-        "Funding": ["Buffalo Innovation Seed Fund", "Small Business Technology Investment Fund"],
-        "Incubation Centers": [] // No specific centers for this step
-      }
+      "resources": [
+        {
+          "organization": "Western New York Food Hub",
+          "website": "https://www.wnyfoodhub.com/"
+        },
+        {
+          "organization": "Niagara Gateway Chamber of Commerce",
+          "website": "https://www.niagaragateway.com/"
+        }
+      ]
     },
     {
       "step_number": 5,
       "category": "Marketing and Branding",
       "tasks": [
-        "Design a compelling brand identity and logo",
-        "Create a user-friendly website and mobile app for ordering",
-        "Develop a targeted marketing strategy to reach your audience"
+        "Create a strong brand identity and logo that resonates with your target audience",
+        "Develop an attractive and user-friendly website to showcase your meal-prep service",
+        "Implement various digital marketing strategies such as social media campaigns, search engine optimization, and content marketing"
       ],
       "team_positions": [
-        "Marketing Specialist",
+        "Marketing Manager",
         "Graphic Designer",
         "Web Developer"
       ],
-      "resources": {
-        "Organizations": ["University at Buffalo Center for Entrepreneurial Leadership", "Buffalo Niagara Sales and Marketing Executives"],
-        "Funding": ["Western New York Venture Association", "Buffalo Angels"],
-        "Incubation Centers": ["Center for Urban Entrepreneurship", "Tech Garden"]
-      }
+      "resources": [
+        {
+          "organization": "Buffalo Niagara Convention Center",
+          "website": "https://www.visitbuffaloniagara.com/"
+        },
+        {
+          "organization": "Buffalo Niagara Digital Marketing Meetup",
+          "website": "https://www.meetup.com/Buffalo-Niagara-Digital-Marketing-Meetup/"
+        }
+      ]
     },
     {
       "step_number": 6,
-      "category": "Technology and Systems",
+      "category": "Customer Acquisition and Service",
       "tasks": [
-        "Implement a robust online ordering and payment system",
-        "Ensure data security and privacy for customers",
-        "Leverage automation and artificial intelligence for process optimization"
+        "Implement a customer acquisition strategy through targeted advertising, referral programs, and partnerships",
+        "Provide exceptional customer service and actively seek feedback to improve your service",
+        "Develop loyalty programs or subscription options to retain customers"
       ],
       "team_positions": [
-        "Technology Consultant",
-        "Cybersecurity Specialist"
+        "Customer Acquisition Specialist",
+        "Customer Service Representative"
       ],
-      "resources": {
-        "Organizations": ["Buffalo Open Data Initiative", "Buffalo Information Technology Center"],
-        "Funding": ["Digital Health Venture Fund", "Innovation Credit Union Startup Fund"],
-        "Incubation Centers": ["Innovate Niagara", "Launch NY"]
-      }
+      "resources": [
+        {
+          "organization": "Niagara Falls Tourism",
+          "website": "https://www.niagarafallsusa.com/"
+        },
+        {
+          "organization": "Niagara Frontier Food Terminal",
+          "website": "https://www.niagarafrontierfoodterminal.com/"
+        }
+      ]
     },
     {
       "step_number": 7,
       "category": "Financial Management",
       "tasks": [
-        "Manage cash flow and implement effective financial control systems",
-        "Secure investment or funding for scaling up operations",
-        "Monitor and analyze key financial metrics for business growth"
+        "Set up a robust accounting system to track income, expenses, and profitability",
+        "Seek funding options and potential investors for business growth",
+        "Monitor financial performance regularly and make necessary adjustments"
       ],
       "team_positions": [
-        "Chief Financial Officer",
-        "Accountant"
+        "Accountant",
+        "Financial Advisor"
       ],
-      "resources": {
-        "Organizations": ["Buffalo Niagara Enterprise", "Greater Niagara Frontier Council"],
-        "Funding": ["Nexus Community Ventures", "Launch NY Seed Fund"],
-        "Incubation Centers": ["Bright Buffalo Niagara", "Buffalo Niagara Medical Campus Innovation Center"]
-      }
+      "resources": [
+        {
+          "organization": "Buffalo Financial Planning Association",
+          "website": "https://www.fpabuffalo.org/"
+        },
+        {
+          "organization": "Buffalo Angel Network",
+          "website": "https://buffaloangelnetwork.com/"
+        }
+      ]
     },
     {
       "step_number": 8,
-      "category": "Expansion and Growth",
+      "category": "Continuous Improvement",
       "tasks": [
-        "Explore additional markets and geographical expansion opportunities",
-        "Diversify product offerings to cater to changing customer preferences",
-        "Build strategic partnerships for business growth"
+        "Stay updated with industry trends and innovations in meal-prep services",
+        "Listen to customer feedback and make necessary adjustments to your offerings",
+        "Regularly assess and optimize your operations for efficiency and cost-effectiveness"
       ],
       "team_positions": [
-        "Business Development Manager",
-        "Partnerships Coordinator"
+        "Business Analyst",
+        "Quality Assurance Manager"
       ],
-      "resources": {
-        "Organizations": ["Greater Niagara Chamber of Commerce", "Buffalo Niagara Partnership"],
-        "Funding": ["Innovation Center at Niagara Falls Culinary Institute", "Empire State Development"],
-        "Incubation Centers": ["Z80 Labs", "Techstars Buffalo"]
-      }
+      "resources": [
+        {
+          "organization": "Niagara Falls Culinary Institute",
+          "website": "https://nfculinary.org/"
+        },
+        {
+          "organization": "Buffalo-Niagara Food Innovation Hub",
+          "website": "https://www.ncifh.org/"
+        }
+      ]
     }
   ]
 }
