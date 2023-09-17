@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {SERVER_URL} from "./config/dev";
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const SignupForm = () => {
     // }
 
     axios
-      .post("http://172.29.223.110:8001/auth/register", formData, {
+      .post(`${SERVER_URL}/auth/register`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
