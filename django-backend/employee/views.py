@@ -11,6 +11,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 
 import os
 import openai
+import json
 
 openai.organization = "org-hmLTnmUwpQ26fR7nqDqxWwVq"
 openai.api_key = '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'
@@ -119,6 +120,6 @@ def generate_content(prompt):
         ]
     )
     plan_json = response['choices'][0]['message']['content']
-    plan_str = str(plan_json)
+    plan_str = json.dumps(plan_json)
     # plan_str = plan_str.
     return plan_str
