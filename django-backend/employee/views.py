@@ -120,5 +120,5 @@ def generate_content(prompt):
     )
     plan_json = response['choices'][0]['message']['content']
     plan_str = str(plan_json)
-    plan_str = plan_str.replace('\n','').replace(' ','')
+    # plan_str = plan_str.
     return plan_str
