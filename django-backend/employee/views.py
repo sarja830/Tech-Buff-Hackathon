@@ -32,7 +32,7 @@ class create_job(CreateAPIView):
         current_user = auth_current_user(self.request)
         headline = request.POST['headline']
         description = request.POST['description']
-        employer_name = current_user.name
+        employer_name = current_user.username
         employer_email = current_user.email
         JobPosting.objects.create(headline=headline, description=description, employer_name=employer_name, employer_email=employer_email)
         return JsonResponse({'msg': 'Job Posted'}, status=201)
