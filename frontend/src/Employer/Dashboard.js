@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import AddText from "./AddText";
 import EmployeeProfile from "./EmployerProfile";
 import JobPostings from "./JobPostings";
+import Prompt from "./Prompt";
+import Projects from "./Projects";
 
 const Dashboard = () => {
     const [tab, setTab] = useState("dashboard");
-    const [isNew] = useState(true);
+    const [isNew, setIsNew] = useState(false);
 
   return (
     <div className="bg-slate-200 flex h-screen">
@@ -37,10 +39,11 @@ const Dashboard = () => {
         >
           <div className="bg-slate-800 mt-5 py-4 pl-10 md:mt-10">
             <span className="">
-              <span className="mr-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 align-bottom text-2xl font-bold">
+              {/* <span className="mr-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 align-bottom text-2xl font-bold">
                 U
               </span>
-              <span className="text-xl">rbane</span>
+              <span className="text-xl">rbane</span> */}
+              <img src="" />
             </span>
           </div>
           <ul className="mt-8 space-y-3 md:mt-20">
@@ -374,27 +377,9 @@ const Dashboard = () => {
         {/* <!-- /Navbar --> */}
 
         {/* <!-- Main --> */}
-        {!isNew && tab==="dashboard" && <div className="h-full overflow-hidden pl-10">
-          <main
-            id="dashboard-main"
-            className="h-[calc(100vh-10rem)] overflow-auto px-4 py-10"
-          >
-            {/* <!-- Put your content inside of the <main/> tag --> */}
-            <h1 className="text-2xl font-black text-gray-800">Good Morning!</h1>
-            <p className="mb-6 text-gray-600">
-              Here's an overview of your monthly transactions.
-            </p>
-            <div className="flex flex-wrap gap-x-4 gap-y-8">
-              <div className="h-56 w-72 rounded-xl bg-white p-10 shadow-md"></div>
-              <div className="h-56 w-72 rounded-xl bg-white p-10 shadow-md"></div>
-              <div className="h-56 w-full rounded-xl bg-white p-10 shadow-md"></div>
-              <div className="h-56 w-full rounded-xl bg-white p-10 shadow-md"></div>
-              <div className="h-56 w-full rounded-xl bg-white p-10 shadow-md"></div>
-            </div>
-          </main>
-        </div>}
+        {!isNew && tab==="dashboard" && <Projects />}
         {/* <!-- /Main --> */}
-        {isNew && tab==="dashboard" && <AddText />}
+        {isNew && tab==="dashboard" && <AddText setIsNew={setIsNew} />}
         {tab==="profile" && <EmployeeProfile />}
         {tab==="jobPostings" && <JobPostings />}
       </div>
