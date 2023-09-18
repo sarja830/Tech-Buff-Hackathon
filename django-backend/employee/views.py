@@ -9,6 +9,13 @@ from authentication.views import auth_current_user
 from authentication.serializers import UserSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 
+import os
+import openai
+
+openai.organization = "org-hmLTnmUwpQ26fR7nqDqxWwVq"
+openai.api_key = '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'
+prefix = "Act like a venture coach and give me 8 actionable steps in json format which includes the step number, category, multiple elaborated tasks, team positions, multiple resources that can help at each step like organizations, to help me in each step located around Niagara Falls, Buffalo (provide website links if possible) for my startup. Start up idea is: "
+
 # Create your views here.
 
 # employees
@@ -56,8 +63,10 @@ class create_project(APIView):
         current_user = auth_current_user(self.request)
         name = request.POST['name']
         idea = request.POST['idea']
-        content = request.POST['content']
-        Project.objects.create(name=name, idea=idea, content=content, user=current_user)
+        is_ready = True
+        content = generate_content(idea)
+        
+        Project.objects.create(name=name, idea=idea, content=content, user=current_user, is_ready=is_ready)
         return JsonResponse({'msg': 'Project Created'}, status=201)
 
 
@@ -100,3 +109,16 @@ class get_jobs_applications(ListAPIView):
         return applicants
 
 
+
+def generate_content(prompt):
+    print(prompt)     
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo-16k",
+        messages=[
+            {"role": "user", "content": prefix+prompt}
+        ]
+    )
+    plan_json = response['choices'][0]['message']['content']
+    plan_str = str(plan_json)
+    plan_str = plan_str.replace('\n','').replace(' ','')
+    return plan_str
