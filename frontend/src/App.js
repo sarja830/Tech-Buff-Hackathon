@@ -27,6 +27,10 @@ const router = createBrowserRouter([
         path: "/employee",
         element: <EmployeeDashboard />
       },
+      // {
+      //   path: "/employee/prompt",
+      //   element: <Prompt />
+      // }
     ]
   }
 ]);

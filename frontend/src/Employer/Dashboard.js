@@ -377,9 +377,9 @@ const Dashboard = () => {
         {/* <!-- /Navbar --> */}
 
         {/* <!-- Main --> */}
-        {!isNew && tab==="dashboard" && <Projects />}
+        {!isNew && tab==="dashboard" && <Projects setIsNew={setIsNew} />}
         {/* <!-- /Main --> */}
-        {isNew && tab==="dashboard" && <AddText setIsNew={setIsNew} />}
+        {isNew && tab==="dashboard" && <AddText setIsNew={setIsNew.bind(null, null)} />}
         {tab==="profile" && <EmployeeProfile />}
         {tab==="jobPostings" && <JobPostings />}
       </div>
