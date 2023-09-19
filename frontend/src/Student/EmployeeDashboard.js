@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import EmployeeProfile from "./EmployeeProfile";
 import Jobs from "./Jobs";
+import { useNavigate } from "react-router-dom";
 
 const EmployeeDashboard = () => {
     const [tab, setTab] = useState("dashboard");
     // const [isNew, setIsNew] = useState(true);
+    const navigate = useNavigate();
+
+    const logoutHandler = () => {
+      localStorage.removeItem('token');
+      navigate("/");
+    }
 
   return (
     <div className="bg-slate-200 flex h-screen">
@@ -34,12 +41,16 @@ const EmployeeDashboard = () => {
           aria-label="Sidebar Navigation"
           className="peer-checked:w-64 left-0 z-10 flex h-screen w-0 flex-col overflow-hidden bg-gray-700 text-white transition-all md:h-screen md:w-64 lg:w-72"
         >
-          <div className="bg-slate-800 mt-5 py-4 pl-10 md:mt-10">
+          <div className="bg-slate-100 mt-5 py-4 pl-10 md:mt-10">
             <span className="">
-              <span className="mr-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 align-bottom text-2xl font-bold">
+              {/* <span className="mr-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 align-bottom text-2xl font-bold">
                 U
               </span>
-              <span className="text-xl">rbane</span>
+              <span className="text-xl">rbane</span> */}
+              {/* <div className="w-40 h-15" style={{backgroundImage:
+                "url(/WhatsApp.jpeg)", backgroundSize:"cover"
+                }}>Hello</div> */}
+              <img src="/Logo.png" className="w-40 h-20 object-cover" />
             </span>
           </div>
           <ul className="mt-8 space-y-3 md:mt-20">
@@ -234,7 +245,7 @@ const EmployeeDashboard = () => {
               />
             </div>
             <div className="ml-3">
-              <p className="font-medium">Diana Reeves</p>
+              <p className="font-medium">Tejas</p>
               {/* <p className="text-sm text-gray-300">Kyiv, Ukraine</p> */}
             </div>
           </div>
@@ -331,7 +342,10 @@ const EmployeeDashboard = () => {
                 </button>
               </li>
             </ul> */}
-            <button className="bg-blue-600 rounded-md px-4 py-2 text-white">Logout</button>
+            <button className="bg-blue-600 rounded-md px-4 py-2 text-white"
+            onClick={logoutHandler}>
+              Logout
+            </button>
           </div>
         </header>
         {/* <!-- /Navbar --> */}
@@ -355,7 +369,7 @@ const EmployeeDashboard = () => {
               <div className="h-56 w-full rounded-xl bg-white p-10 shadow-md"></div>
             </div>
           </main> */}
-          {tab==="dashboard" && <div className=""><Jobs setTab={setTab} /></div>}
+          {tab==="dashboard" && <Jobs setTab={setTab} />}
         {/* </div>} */}
         {/* <!-- /Main --> */}
         {tab==="profile" && <EmployeeProfile setTab={setTab} />}

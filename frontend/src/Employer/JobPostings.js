@@ -1,6 +1,22 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { SERVER_URL } from "../config/dev";
 
 const JobPostings = () => {
+  const [postings, setPostings] = useState([]);
+
+  // useEffect(() => {
+  //   axios.get(`${SERVER_URL}/employer/get_jobs_applications`, {headers: {
+  //     Authorization: `Token ${localStorage.getItem("token")}`,
+  //   }}).then((response) => {
+  //     console.log(response.data);
+  //     const postings = response.data;
+  //     setPostings([...postings]);
+  //   }).catch((error) => {
+  //     alert(error);
+  //   });
+  // }, []);
+
   return (
     <div className="p-5 overflow-y-auto">
         <h1 className="text-2xl text-center"><strong>All jobs posted</strong></h1>

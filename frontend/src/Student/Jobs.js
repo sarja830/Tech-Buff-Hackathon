@@ -6,8 +6,18 @@ import { SERVER_URL } from "../config/dev";
 const Jobs = ({setTab}) => {
   const [jobs, setJobs] = useState([]);
 
-  const jobApplyHandler = () => {
-    alert("Job applied successfully");
+  const jobApplyHandler = (job_id) => {
+    // alert("Job applied successfully");
+    const form_data = new FormData();
+    form_data.append("job_posting_id", job_id);
+    axios.post(`${SERVER_URL}/employee/apply_for_job`, form_data, {headers: {
+      'Content-Type': 'multipart/form-data',
+      Authorization: `Token ${localStorage.getItem("token")}`,
+    }}).then((response) => {
+      alert("Job applied successfully");
+    }).catch((error) => {
+      alert(error);
+    });
   }
 
   useEffect(() => {
@@ -22,13 +32,14 @@ const Jobs = ({setTab}) => {
 }, []);
 
   return (
-    <>
+    <div className="max-h-screen overflow-y-auto">
     <div className="flex flex-col">
       <h1 className="mb-6 text-2xl text-center mt-4"><strong>Your job feed personalized to your preferences</strong></h1>
       <button onClick={() => (setTab("profile"))} className="underline text-blue-600">Update your profile for more job recommendations</button>
     </div>
+    <div className="">
     {jobs.length>0 ? 
-    jobs.map((job) => (<div className="relative flex flex-col items-center justify-center overflow-hidden sm:py-12">
+    jobs.map((job) => (<div className=" flex flex-col items-center justify-center sm:py-6">
       <div className="bg-white  shadow-xl shadow-gray-100 w-full max-w-4xl flex flex-col sm:flex-row gap-3 sm:items-center  justify-between px-5 py-4 rounded-md">
         <div>
           {/* <span className="text-purple-800 text-sm">Engineering</span> */}
@@ -64,7 +75,7 @@ const Jobs = ({setTab}) => {
         </div>
         <div>
           <button className="bg-purple-900 text-white font-medium px-4 py-2 rounded-md flex gap-1 items-center"
-          onClick={jobApplyHandler}>
+          onClick={jobApplyHandler.bind(null, job.id)}>
             Apply Now
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -83,12 +94,14 @@ const Jobs = ({setTab}) => {
           </button>
         </div>
       </div>
-    </div>)) :
+    </div>
+    )) :
     <div className="mt-10 px-10">
       <p>Sorry, 0 matching jobs found!</p>
       <p>Try updating your profile for more recommendations.</p>
       </div>}
-    </>
+    </div>
+    </div>
   );
 };
 
